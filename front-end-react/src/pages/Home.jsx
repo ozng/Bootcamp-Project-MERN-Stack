@@ -1,9 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 
 function Home() {
-  const user = {
-    username: "ozangurer",
-  };
+  const user = null;
 
   return (
     <>
