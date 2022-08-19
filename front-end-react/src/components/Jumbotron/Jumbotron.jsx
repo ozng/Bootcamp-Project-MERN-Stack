@@ -84,7 +84,7 @@ function Jumbotron() {
           </div>
           {/* BUTTON */}
           <div className="jumbotron-button-container">
-            <Button type="primary" size="large" className="jumbotron-button">
+            <Button type="primary" size="large">
               Otel Ara
             </Button>
           </div>

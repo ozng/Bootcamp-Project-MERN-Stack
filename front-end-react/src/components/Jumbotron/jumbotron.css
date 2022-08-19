@@ -34,12 +34,6 @@
   width: 20rem;
 }
 
-.jumbotron-button {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  border: none;
-}
-
 .jumbotron-button:hover {
   background-color: var(--color-fourth);
 }
@@ -50,7 +44,7 @@
 
 .jumbotron-visitor-container {
   position: absolute;
-  left: -1rem;
+  left: 0;
   background-color: var(--color-primary);
   border-radius: 0 0 5px 5px;
   padding: 2rem 1rem;
