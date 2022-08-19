@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
+import Jumbotron from "../components/Jumbotron/Jumbotron";
 
 function Home() {
   const user = null;
@@ -6,6 +7,7 @@ function Home() {
   return (
     <>
       <Navbar user={user} />
+      <Jumbotron />
     </>
   );
 }

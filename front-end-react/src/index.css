@@ -1,3 +1,4 @@
+@import "~antd/dist/antd.css";
 *,
 *::after,
 *::before {
@@ -8,7 +9,7 @@
   --color-primary: #fff;
   --color-accent: #feaf26;
   --color-third: #6f32ff;
-  --color-fourth: #ffcd41;
+  --color-fourth: #fcbb4a;
 }
 
 html {
