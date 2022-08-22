@@ -26,3 +26,7 @@ body {
   color: var(--color-primary);
   border: none;
 }
+
+.ant-btn-primary:hover {
+  background-color: var(--color-fourth);
+}
