@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, Space } from 'antd'
 import React from 'react'
 
 const SignIn = () => {
@@ -28,7 +28,10 @@ const SignIn = () => {
                 <Input.Password placeholder='Password' allowClear />
             </Form.Item>
             <Form.Item>
-                <Button type='primary' htmlType='submit'>Sign In</Button>
+                <Space size='small'>
+                    <Button type='primary' htmlType='submit'>Sign In</Button>
+                    <Button type='primary' htmlType='reset'>Clear</Button>
+                </Space>
             </Form.Item>
         </Form>
     )
