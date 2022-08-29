@@ -17,8 +17,10 @@
 }
 
 .detail-image-slider {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   width: 50%;
+  padding: 0 2rem;
+  border-radius: 10px;
 }
 
 .detail-info-container {
