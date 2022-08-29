@@ -1,0 +1,44 @@
+.detail-container {
+  margin: 0 20%;
+}
+
+.detail-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#detail-title {
+  padding-top: 1rem;
+}
+
+.detail-range-picker-container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1rem 4rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-reservation-description-container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5rem 2rem;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+}
+
+.detail-desc-container {
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.detail-map-container {
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.detail-otel-info {
+  margin: 5rem 0;
+}
