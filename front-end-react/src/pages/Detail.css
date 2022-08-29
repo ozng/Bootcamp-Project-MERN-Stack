@@ -12,6 +12,20 @@
   padding-top: 1rem;
 }
 
+.detail-image-info-container {
+  display: flex;
+}
+
+.detail-image-slider {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 50%;
+}
+
+.detail-info-container {
+  width: 50%;
+  margin-left: 2rem;
+}
+
 .detail-range-picker-container {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;

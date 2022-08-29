@@ -7,6 +7,7 @@ import ReservationCard from "../components/ReservationCard/ReservationCard";
 import Description from "../components/Description/Description";
 import LocationCard from "../components/LocationCard/LocationCard";
 import Contact from "../components/Contact/Contact";
+import InfoList from "../components/InfoList/InfoList";
 
 const { Title, Text } = Typography;
 
@@ -42,6 +43,15 @@ function Detail() {
     setVisible((prev) => !prev);
   };
 
+  const shortInfo = [
+    { title: "İlan no", label: "1QerT34e" },
+    { title: "Veteriner", label: "Var" },
+    { title: "Kapasite", label: "20" },
+    { title: "Kabul edilen hayvanlar", label: "Kedi, Köpek" },
+    { title: "Şehir", label: "İstanbul" },
+    { title: "Bahçeli", label: "Evet" },
+  ];
+
   return (
     <>
       <Navbar />
@@ -52,9 +62,13 @@ function Detail() {
           </Title>
           <Text>Kadıköy, İstanbul</Text>
         </div>
-
-        <div>
-          <ImageSlider images={otelImages} />
+        <div className="detail-image-info-container">
+          <div className="detail-image-slider">
+            <ImageSlider images={otelImages} />
+          </div>
+          <div className="detail-info-container">
+            <InfoList shortInfo={shortInfo} />
+          </div>
         </div>
 
         <div className="detail-range-picker-container">
