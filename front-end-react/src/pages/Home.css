@@ -1,0 +1,10 @@
+.home-card-otel-label {
+  margin: 2rem 20%;
+}
+
+.home-card-container {
+  margin: 1rem 20%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}

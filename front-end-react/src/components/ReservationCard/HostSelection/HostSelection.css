@@ -1,0 +1,40 @@
+.host-selection-container {
+  position: relative;
+}
+
+.host-selection-label {
+  font-size: 1.2rem;
+}
+
+.host-selection-options-container {
+  border: 1px solid #bfbfbf;
+  width: 20rem;
+  border-radius: 3px;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.host-selection-options {
+  font-size: 1.4rem;
+  color: #bfbfbf;
+  padding: 1rem 1rem;
+}
+
+.host-selection-visitor-container {
+  position: absolute;
+  left: 0;
+  background-color: var(--color-primary);
+  border-radius: 0 0 5px 5px;
+  padding: 2rem 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.host-selection-visible {
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+}

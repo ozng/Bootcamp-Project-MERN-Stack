@@ -1,28 +1,25 @@
-import React from 'react';
-import { Card , Rate } from 'antd';
+import React from "react";
+import { Card, Rate } from "antd";
 
 const { Meta } = Card;
 
-const CardPic = () => {
+const CardPic = ({ item }) => {
+  return (
+    <Card
+      hoverable
+      style={{
+        width: 240,
+      }}
+      cover={<img alt="example" src={item.imageUrl} style={{ height: 200 }} />}
+    >
+      <Meta title={item.title} description={item.address} />
 
-    return (
-  <Card
-    hoverable
-    style={{
-      width: 240,
-    }}
-    cover={<img alt="example" src="https://images.pexels.com/photos/3662360/pexels-photo-3662360.jpeg" />}
-  >
-    <Meta title="Sayanora Pet Hotel" description="Bilmemne cad. bilmem sk. sanane.s konutları" />
+      <Rate disabled value={item.star} />
 
-    <Rate disabled defaultValue={2} />
-
-
-    <Meta description="2 gecelik fiyat " />
-    <span style={{fontWeight: 'bold' , fontSize: 20}}>23131 TL</span>
-
-  </Card>
-)
+      <Meta description="1 günlük fiyat" />
+      <span style={{ fontWeight: "bold", fontSize: 20 }}>{item.price}₺</span>
+    </Card>
+  );
 };
 
 export default CardPic;
