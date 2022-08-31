@@ -28,11 +28,9 @@ function Jumbotron() {
   return (
     <div className="jumbotron-container">
       <div className="jumbotron-wrapper">
-        {/* TITLE */}
         <h2 className="jumbotron-title">
           En iyi ve güvenilir evcil hayvan otellerini uygun fiyatlara bulun!
         </h2>
-        {/* CITY - DISTRICT */}
         <ReservationCard
           options={options}
           visible={visible}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Rate } from "antd";
 
 const { Meta } = Card;

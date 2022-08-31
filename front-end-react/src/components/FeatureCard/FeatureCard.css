@@ -1,0 +1,32 @@
+.featured-container {
+  width: 25%;
+  height: 32rem;
+  border: 0.8px solid lightgray;
+  border-radius: 1.5px;
+  overflow: hidden;
+}
+
+.featured-title-container {
+  background-color: rgb(235, 235, 235);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.featured-icon-desc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.featured-icon {
+  font-size: 6rem;
+  padding-bottom: 3rem;
+  color: var(--color-accent);
+}
+
+.featured-desc {
+  font-size: 1.6rem;
+  text-align: center;
+}

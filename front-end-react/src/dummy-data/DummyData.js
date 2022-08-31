@@ -15,3 +15,24 @@ export const otelImages = [
   "https://images.pexels.com/photos/1056467/pexels-photo-1056467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   "https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 ];
+
+export const featuredLabel = [
+  {
+    title: "Hepsi Bir Arada",
+    description:
+      "Tüm evcil hayvan otelleri bir arada, filtrenize uygun oteli bulabilir hızlıca rezervasyon yaptırabilirsiniz.",
+    iconType: "ReadOutlined",
+  },
+  {
+    title: "Hızlı, Kolay",
+    description:
+      "Pethotel ile aradığınızı hızlıca bulup rezervasyon yaptırmanız birkaç dakikanızı alacak.",
+    iconType: "FieldTimeOutlined",
+  },
+  {
+    title: "Güven",
+    description:
+      "Tüm ödeme işlemleriniz güvenlik sertifikası ile koruma altındadır.",
+    iconType: "CheckOutlined",
+  },
+];
