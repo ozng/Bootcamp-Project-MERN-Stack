@@ -23,7 +23,7 @@
 .featured-icon {
   font-size: 6rem;
   padding-bottom: 3rem;
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
 }
 
 .featured-desc {

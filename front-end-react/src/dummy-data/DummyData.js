@@ -36,3 +36,24 @@ export const featuredLabel = [
     iconType: "CheckOutlined",
   },
 ];
+
+export const otelsFilteredByHost = [
+  {
+    id: "123",
+    title: "Köpek Otelleri",
+    imageUrl:
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    id: "456",
+    title: "Kedi Otelleri",
+    imageUrl:
+      "https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    id: "789",
+    title: "Tüm Oteller",
+    imageUrl:
+      "https://images.pexels.com/photos/6601811/pexels-photo-6601811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+];

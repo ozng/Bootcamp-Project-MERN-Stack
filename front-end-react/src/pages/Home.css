@@ -15,7 +15,13 @@
 .home-featured-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 2.5rem;
+}
+
+.home-otels-card-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: space-evenly;
 }
