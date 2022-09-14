@@ -2,7 +2,7 @@
 
 ### Home Screen
 
-![Pethotels with feature section](https://user-images.githubusercontent.com/93818025/187670916-2961fad2-736c-40b7-88b7-fd2e9ebd1d44.png)
+![Pet Hotels with otels card](https://user-images.githubusercontent.com/93818025/187896493-e1893524-2e44-49c8-a53a-a5f0afe17261.png)
 
 ### Detail Screen
 
