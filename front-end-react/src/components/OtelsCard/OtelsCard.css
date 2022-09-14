@@ -20,6 +20,6 @@
   position: absolute;
   bottom: 0;
   right: 1rem;
-  color: white;
+  color: white !important;
   font-size: 2.5rem;
 }

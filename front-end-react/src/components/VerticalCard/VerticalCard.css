@@ -1,0 +1,5 @@
+.vertical-card-image {
+  object-fit: cover;
+  width: 27.5rem;
+  height: 25rem;
+}

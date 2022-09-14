@@ -18,18 +18,23 @@ export const otelImages = [
 
 export const featuredLabel = [
   {
+    id: "1",
     title: "Hepsi Bir Arada",
     description:
       "Tüm evcil hayvan otelleri bir arada, filtrenize uygun oteli bulabilir hızlıca rezervasyon yaptırabilirsiniz.",
     iconType: "ReadOutlined",
   },
   {
+    id: "2",
+
     title: "Hızlı, Kolay",
     description:
       "Pethotel ile aradığınızı hızlıca bulup rezervasyon yaptırmanız birkaç dakikanızı alacak.",
     iconType: "FieldTimeOutlined",
   },
   {
+    id: "3",
+
     title: "Güven",
     description:
       "Tüm ödeme işlemleriniz güvenlik sertifikası ile koruma altındadır.",
