@@ -1,6 +1,5 @@
 import "./Home.css";
 import { Typography } from "antd";
-import { useSelector } from "react-redux";
 // Dummy datas
 import { otelData } from "../dummy-data/OtelData";
 import { featuredLabel, otelsFilteredByHost } from "../dummy-data/DummyData";
@@ -34,17 +33,13 @@ function Home() {
       </Title>
       <div className="home-featured-container home-margin">
         {featuredLabel.map((item) => (
-          <div key={item.id}>
-            <FeatureCard item={item} />
-          </div>
+          <FeatureCard item={item} />
         ))}
       </div>
 
       <div className="home-otels-card-container home-margin">
         {otelsFilteredByHost.map((item) => (
-          <div key={item.id}>
-            <OtelsCard item={item} />
-          </div>
+          <OtelsCard item={item} />
         ))}
       </div>
 
