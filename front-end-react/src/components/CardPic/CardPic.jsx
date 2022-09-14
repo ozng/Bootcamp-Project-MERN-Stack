@@ -1,11 +1,21 @@
 import { Card, Rate } from "antd";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSelectedOtel } from "../../store/actions/otel";
 
 const { Meta } = Card;
 
 const CardPic = ({ item }) => {
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <Card
       hoverable
+      onClick={() => {
+        dispatch(setSelectedOtel(item));
+        navigation("/detail");
+      }}
       style={{
         width: 240,
       }}

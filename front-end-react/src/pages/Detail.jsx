@@ -1,39 +1,33 @@
 import Navbar from "../components/Navbar/Navbar";
 import { Typography } from "antd";
 import "./Detail.css";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import ImageSlider from "../components/ImageSlider/ImageSlider";
 import ReservationCard from "../components/ReservationCard/ReservationCard";
 import Description from "../components/Description/Description";
 import LocationCard from "../components/LocationCard/LocationCard";
 import Contact from "../components/Contact/Contact";
 import InfoList from "../components/InfoList/InfoList";
-import { shortInfo, otelImages } from "../dummy-data/DummyData";
 
 const { Title, Text } = Typography;
 
 function Detail() {
-  const [options, setOptions] = useState({
-    cat: { label: "Kedi", value: 0 },
-    dog: { label: "Köpek", value: 0 },
-  });
-  const [visible, setVisible] = useState(false);
+  const selectedHotel = useSelector((state) => state.otel.selectedOtel);
 
-  const handleChangeOption = (name, operation) => {
-    setOptions((prevState) => {
-      return {
-        ...prevState,
-        [name]:
-          operation === "i"
-            ? { ...options[name], value: options[name].value + 1 }
-            : { ...options[name], value: options[name].value - 1 },
-      };
-    });
-  };
-
-  const handleVisible = () => {
-    setVisible((prev) => !prev);
-  };
+  const shortInfo = [
+    { title: "İlan no", label: selectedHotel?.id },
+    {
+      title: "Veteriner",
+      label: selectedHotel?.veterinaryAvailable ? "Evet" : "Hayır",
+    },
+    { title: "Kapasite", label: selectedHotel?.capacity },
+    {
+      title: "Kabul edilen hayvanlar",
+      label: selectedHotel?.acceptedHosts.map((item) => item + " "),
+    },
+    { title: "Şehir", label: selectedHotel?.city },
+    { title: "Bahçeli", label: selectedHotel?.haveGarden ? "Evet" : "Hayır" },
+  ];
 
   return (
     <>
@@ -41,13 +35,13 @@ function Detail() {
       <div className="detail-container">
         <div className="detail-title-container">
           <Title id="detail-title" level={3}>
-            Grand Pasha Hotel
+            {selectedHotel?.title}
           </Title>
-          <Text>Kadıköy, İstanbul</Text>
+          <Text>{selectedHotel?.adress}</Text>
         </div>
         <div className="detail-image-info-container">
           <div className="detail-image-slider">
-            <ImageSlider images={otelImages} />
+            <ImageSlider images={selectedHotel?.images} />
           </div>
           <div className="detail-info-container">
             <InfoList shortInfo={shortInfo} />
@@ -55,18 +49,12 @@ function Detail() {
         </div>
 
         <div className="detail-range-picker-container">
-          <ReservationCard
-            options={options}
-            visible={visible}
-            handleChangeOption={handleChangeOption}
-            handleVisible={handleVisible}
-            btnTitle="Rezervasyon Değiştir"
-          />
+          <ReservationCard btnTitle="Rezervasyon Değiştir" />
         </div>
 
         <div className="detail-reservation-description-container">
           <div className="detail-desc-container">
-            <Description />
+            <Description description={selectedHotel?.description} />
           </div>
 
           <div className="detail-map-container">

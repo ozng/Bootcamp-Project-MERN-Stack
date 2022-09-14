@@ -13,8 +13,10 @@ function SelectableDropdown() {
         className="selectable-select"
         onChange={(city) => dispatch(changeCity(city))}
       >
+        <Select.Option value="ant">Antalya</Select.Option>
+        <Select.Option value="grn">Girne</Select.Option>
         <Select.Option value="ist">İstanbul</Select.Option>
-        <Select.Option value="izm">İzmir</Select.Option>
+        <Select.Option value="mgl">Muğla</Select.Option>
       </Select>
     </div>
   );
