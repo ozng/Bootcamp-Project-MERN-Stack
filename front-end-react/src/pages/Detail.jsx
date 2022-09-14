@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import { Typography } from "antd";
+import { useLayoutEffect } from "react";
 import "./Detail.css";
 import { useSelector } from "react-redux";
 import ImageSlider from "../components/ImageSlider/ImageSlider";
@@ -13,6 +14,13 @@ const { Title, Text } = Typography;
 
 function Detail() {
   const selectedHotel = useSelector((state) => state.otel.selectedOtel);
+
+  useLayoutEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 
   const shortInfo = [
     { title: "İlan no", label: selectedHotel?.id },
