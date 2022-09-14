@@ -2,7 +2,7 @@ import "./jumbotron.css";
 import ReservationCard from "../ReservationCard/ReservationCard";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilteredOtel } from "../../store/actions/otel";
+import { setFilteredOtelByCity } from "../../store/actions/otel";
 
 function Jumbotron() {
   const navigation = useNavigate();
@@ -19,7 +19,7 @@ function Jumbotron() {
           showCityOption
           btnTitle="Otel Ara"
           onClick={() => {
-            dispatch(setFilteredOtel(selectedCity));
+            dispatch(setFilteredOtelByCity(selectedCity));
             navigation("/hotellist");
           }}
         />

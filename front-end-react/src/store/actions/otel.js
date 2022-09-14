@@ -1,5 +1,6 @@
 export const SET_SELECTED_OTEL = "SET_SELECTED_OTEL";
-export const SET_FILTERED_OTELS = "SET_FILTERED_OTELS";
+export const SET_FILTERED_OTELS_BY_CITY = "SET_FILTERED_OTELS_BY_CITY";
+export const SET_FILTERED_OTELS_BY_HOST = "SET_FILTERED_OTELS_BY_HOST";
 
 export const setSelectedOtel = (otel) => {
   return async (dispatch) => {
@@ -7,8 +8,14 @@ export const setSelectedOtel = (otel) => {
   };
 };
 
-export const setFilteredOtel = (city) => {
+export const setFilteredOtelByCity = (city) => {
   return async (dispatch) => {
-    dispatch({ type: SET_FILTERED_OTELS, payload: city });
+    dispatch({ type: SET_FILTERED_OTELS_BY_CITY, payload: city });
+  };
+};
+
+export const setFilteredOtelByHost = (host) => {
+  return async (dispatch) => {
+    dispatch({ type: SET_FILTERED_OTELS_BY_HOST, payload: host });
   };
 };

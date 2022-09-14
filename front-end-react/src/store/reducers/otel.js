@@ -1,9 +1,13 @@
-import { SET_SELECTED_OTEL, SET_FILTERED_OTELS } from "../actions/otel";
+import {
+  SET_SELECTED_OTEL,
+  SET_FILTERED_OTELS_BY_CITY,
+  SET_FILTERED_OTELS_BY_HOST,
+} from "../actions/otel";
 import { otelData } from "../../dummy-data/OtelData";
 
 const initialState = {
   selectedOtel: null,
-  filteredOtels: [],
+  filteredOtels: otelData,
 };
 
 const otelReducer = (state = initialState, action) => {
@@ -13,10 +17,20 @@ const otelReducer = (state = initialState, action) => {
         ...state,
         selectedOtel: action.payload,
       };
-    case SET_FILTERED_OTELS:
+    case SET_FILTERED_OTELS_BY_CITY:
       return {
         ...state,
         filteredOtels: otelData.filter((otel) => otel.city === action.payload),
+      };
+    case SET_FILTERED_OTELS_BY_HOST:
+      return {
+        ...state,
+        filteredOtels:
+          action.payload === "Tüm"
+            ? otelData
+            : otelData.filter((otel) =>
+                otel.acceptedHosts.includes(action.payload)
+              ),
       };
     default:
       return {
