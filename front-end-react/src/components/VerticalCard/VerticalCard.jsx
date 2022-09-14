@@ -1,8 +1,10 @@
 import { List } from "antd";
 import "./VerticalCard.css";
-import { otelData } from "../../dummy-data/OtelData";
+import { useSelector } from "react-redux";
 
 function VerticalCard() {
+  const filteredOtels = useSelector((state) => state.otel.filteredOtels);
+  console.log(filteredOtels);
   return (
     <>
       <List
@@ -14,7 +16,7 @@ function VerticalCard() {
           },
           pageSize: 10,
         }}
-        dataSource={otelData}
+        dataSource={filteredOtels}
         renderItem={(item) => (
           <List.Item
             key={item.title}

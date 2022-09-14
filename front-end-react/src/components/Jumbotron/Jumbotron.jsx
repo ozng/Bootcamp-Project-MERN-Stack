@@ -1,9 +1,13 @@
 import "./jumbotron.css";
 import ReservationCard from "../ReservationCard/ReservationCard";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilteredOtel } from "../../store/actions/otel";
 
 function Jumbotron() {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
+  const selectedCity = useSelector((state) => state.reservation.city);
 
   return (
     <div className="jumbotron-container">
@@ -14,7 +18,10 @@ function Jumbotron() {
         <ReservationCard
           showCityOption
           btnTitle="Otel Ara"
-          onClick={() => navigation("/hotellist")}
+          onClick={() => {
+            dispatch(setFilteredOtel(selectedCity));
+            navigation("/hotellist");
+          }}
         />
       </div>
     </div>
