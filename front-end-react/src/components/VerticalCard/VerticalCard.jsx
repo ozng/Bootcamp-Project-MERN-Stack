@@ -1,10 +1,18 @@
-import { List } from "antd";
+import { List, Typography } from "antd";
 import "./VerticalCard.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSelectedOtel } from "../../store/actions/otel";
 
 function VerticalCard() {
   const filteredOtels = useSelector((state) => state.otel.filteredOtels);
-  console.log(filteredOtels);
+
+  const { Title } = Typography;
+
+  const navigation = useNavigate();
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <List
@@ -19,7 +27,12 @@ function VerticalCard() {
         dataSource={filteredOtels}
         renderItem={(item) => (
           <List.Item
-            key={item.title}
+            key={item.id}
+            className="vertical-card-list"
+            onClick={() => {
+              dispatch(setSelectedOtel(item));
+              navigation("/detail");
+            }}
             extra={
               <img
                 className="vertical-card-image"
@@ -29,7 +42,7 @@ function VerticalCard() {
             }
           >
             <List.Item.Meta
-              title={<a href="/">{item.title}</a>}
+              title={<Title level={4}>{item.title}</Title>}
               description={item.address}
             />
             {item.description}
