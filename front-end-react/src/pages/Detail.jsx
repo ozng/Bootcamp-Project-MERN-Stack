@@ -7,13 +7,18 @@ import ImageSlider from "../components/ImageSlider/ImageSlider";
 import ReservationCard from "../components/ReservationCard/ReservationCard";
 import Description from "../components/Description/Description";
 import LocationCard from "../components/LocationCard/LocationCard";
-import Contact from "../components/Contact/Contact";
 import InfoList from "../components/InfoList/InfoList";
+import { useState, useEffect } from "react";
+import { calculateDays } from "../utils/Calculations";
 
 const { Title, Text } = Typography;
 
 function Detail() {
   const selectedHotel = useSelector((state) => state.otel.selectedOtel);
+  const selectedDays = useSelector((state) => state.reservation.date);
+  const hosts = useSelector((state) => state.reservation.host);
+
+  const [price, setPrice] = useState(0);
 
   useLayoutEffect(() => {
     window.scrollTo({
@@ -21,6 +26,18 @@ function Detail() {
       behavior: "smooth",
     });
   });
+
+  useEffect(() => {
+    const startDate = selectedDays[0]._d;
+    const endDate = selectedDays[1]._d;
+    const days = calculateDays(endDate, startDate);
+    const catHost = hosts.cat.value;
+    const dogHost = hosts.dog.value;
+    const totalHosts = catHost + dogHost;
+
+    console.log(days);
+    setPrice(selectedHotel.price * days * totalHosts);
+  }, [selectedHotel, selectedDays, hosts]);
 
   const shortInfo = [
     { title: "İlan no", label: selectedHotel?.id },
@@ -57,7 +74,8 @@ function Detail() {
         </div>
 
         <div className="detail-range-picker-container">
-          <ReservationCard btnTitle="Rezervasyon Değiştir" />
+          <ReservationCard btnTitle="Rezervasyon Yap" />
+          <span className="detail-price">{price} ₺</span>
         </div>
 
         <div className="detail-reservation-description-container">
@@ -68,14 +86,6 @@ function Detail() {
           <div className="detail-map-container">
             <LocationCard />
           </div>
-        </div>
-
-        <div className="detail-otel-info">
-          <Title level={4} className="detail-reservation-description-title">
-            İletişim
-          </Title>
-          <Contact title={"Telefon"} label={"0555 555 55 55"} />
-          <Contact title={"E-mail"} label={"react_node@gmail.com"} />
         </div>
       </div>
     </>

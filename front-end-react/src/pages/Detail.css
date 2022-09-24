@@ -35,6 +35,15 @@
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.detail-price {
+  color: var(--color-accent);
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .detail-reservation-description-container {

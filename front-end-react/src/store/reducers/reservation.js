@@ -19,10 +19,7 @@ const reservationReducer = (state = initialState, action) => {
     case SET_DATE:
       return {
         ...state,
-        date: {
-          startDate: action.payload[0]._d,
-          endDate: action.payload[1]._d,
-        },
+        date: action.payload,
       };
     case SET_HOST:
       return {
