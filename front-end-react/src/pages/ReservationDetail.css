@@ -1,0 +1,24 @@
+.reservation-detail-container {
+  background-color: var(--color-accent);
+  height: 100vh;
+}
+
+.reservation-detail-title-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.reservation-detail-title {
+  color: white !important;
+}
+
+.reservation-detail-label {
+  color: #f89d00 !important;
+}
+
+.reservation-detail-m {
+  padding-top: 5rem;
+}

@@ -4,6 +4,7 @@ import Detail from "../pages/Detail";
 import HotelList from "../pages/HotelList";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ReservationDetail from "../pages/ReservationDetail";
 
 function MainRoute() {
   return (
@@ -14,6 +15,7 @@ function MainRoute() {
         <Route path="/hotellist" element={<HotelList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/reservation" element={<ReservationDetail />} />
       </Routes>
     </>
   );
