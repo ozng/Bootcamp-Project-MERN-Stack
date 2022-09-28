@@ -10,6 +10,7 @@ import LocationCard from "../components/LocationCard/LocationCard";
 import InfoList from "../components/InfoList/InfoList";
 import { useState, useEffect } from "react";
 import { calculateDays } from "../utils/Calculations";
+import ReservationModal from "../components/Forms/Modals/ReservationModal";
 
 const { Title, Text } = Typography;
 
@@ -19,6 +20,8 @@ function Detail() {
   const hosts = useSelector((state) => state.reservation.host);
 
   const [price, setPrice] = useState(0);
+  const [isReservationModalVisible, setReservationModalVisible] =
+    useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo({
@@ -28,15 +31,18 @@ function Detail() {
   });
 
   useEffect(() => {
-    const startDate = selectedDays[0]._d;
-    const endDate = selectedDays[1]._d;
-    const days = calculateDays(endDate, startDate);
-    const catHost = hosts.cat.value;
-    const dogHost = hosts.dog.value;
-    const totalHosts = catHost + dogHost;
+    if (selectedDays) {
+      const startDate = selectedDays[0]?._d;
+      const endDate = selectedDays[1]?._d;
+      const days = calculateDays(endDate, startDate);
+      const catHost = hosts.cat.value;
+      const dogHost = hosts.dog.value;
+      const totalHosts = catHost + dogHost;
 
-    console.log(days);
-    setPrice(selectedHotel.price * days * totalHosts);
+      setPrice(selectedHotel.price * days * totalHosts);
+    } else {
+      setPrice(0);
+    }
   }, [selectedHotel, selectedDays, hosts]);
 
   const shortInfo = [
@@ -74,8 +80,15 @@ function Detail() {
         </div>
 
         <div className="detail-range-picker-container">
-          <ReservationCard btnTitle="Rezervasyon Yap" />
+          <ReservationCard
+            btnTitle="Rezervasyon Yap"
+            onClick={() => setReservationModalVisible(true)}
+          />
           <span className="detail-price">{price} ₺</span>
+          <ReservationModal
+            isReservationModalVisible={isReservationModalVisible}
+            setReservationModalVisible={setReservationModalVisible}
+          />
         </div>
 
         <div className="detail-reservation-description-container">
