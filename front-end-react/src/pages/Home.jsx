@@ -33,13 +33,17 @@ function Home() {
       </Title>
       <div className="home-featured-container home-margin">
         {featuredLabel.map((item) => (
-          <FeatureCard item={item} />
+          <div key={item.id}>
+            <FeatureCard item={item} />
+          </div>
         ))}
       </div>
 
       <div className="home-otels-card-container home-margin">
         {otelsFilteredByHost.map((item) => (
-          <OtelsCard item={item} />
+          <div key={item.id}>
+            <OtelsCard item={item} />
+          </div>
         ))}
       </div>
 

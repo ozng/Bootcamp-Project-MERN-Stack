@@ -1,4 +1,9 @@
-import { SET_CITY, SET_DATE, SET_HOST } from "../actions/reservation";
+import {
+  SET_CITY,
+  SET_DATE,
+  SET_HOST,
+  SET_OWNER_INFO,
+} from "../actions/reservation";
 
 const initialState = {
   city: null,
@@ -7,6 +12,7 @@ const initialState = {
     cat: { value: 0 },
     dog: { value: 0 },
   },
+  ownerInfo: {},
 };
 
 const reservationReducer = (state = initialState, action) => {
@@ -32,6 +38,11 @@ const reservationReducer = (state = initialState, action) => {
               action.payload.hostPayload,
           },
         },
+      };
+    case SET_OWNER_INFO:
+      return {
+        ...state,
+        ownerInfo: action.payload,
       };
     default:
       return {

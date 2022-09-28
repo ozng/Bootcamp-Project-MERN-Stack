@@ -8,7 +8,6 @@ const { RangePicker } = AntDDatePicker;
 function DatePicker() {
   const dispatch = useDispatch();
   const selectedDate = useSelector((state) => state.reservation.date);
-  console.log(selectedDate);
   return (
     <div>
       <p className="date-picker-label">Giriş ve Çıkış Tarihi</p>

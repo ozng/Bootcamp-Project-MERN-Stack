@@ -1,11 +1,27 @@
 import Navbar from "../components/Navbar/Navbar";
 import "./ReservationDetail.css";
 import { Typography } from "antd";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const { Title, Text } = Typography;
 
+const ReservationDetailComp = ({ title, label }) => {
+  return (
+    <>
+      <Title className="reservation-detail-title" level={4}>
+        {title}
+      </Title>
+      <Text className="reservation-detail-title">{label}</Text>
+    </>
+  );
+};
+
 function ReservationDetail() {
+  const selectedHotel = useSelector((state) => state.otel.selectedOtel);
+  const ownerInfo = useSelector((state) => state.reservation.ownerInfo);
+  const date = useSelector((state) => state.reservation.date);
+  const selectedHost = useSelector((state) => state.reservation.ownerInfo);
+
   return (
     <div>
       <Navbar />
@@ -14,15 +30,25 @@ function ReservationDetail() {
           <Title className="reservation-detail-label" level={2}>
             Rezervasyonunuz Tamamlandı.
           </Title>
-          <Title className="reservation-detail-title" level={3}>
-            Rezervasyon Numaranız
-          </Title>
-          <Text strong className="reservation-detail-title">
-            1Qe5T
-          </Text>
-          <Text className="reservation-detail-m">
-            Detayları görmek için <Link to={"/1Qe5T"}>tıklayınız</Link>
-          </Text>
+          <div className="reservation-detail-info">
+            <ReservationDetailComp
+              title="Rezervasyon Numaranız"
+              label="qe2Er894"
+            />
+            <ReservationDetailComp
+              title="Seçilen Hotel"
+              label={selectedHotel.title}
+            />
+            <ReservationDetailComp
+              title="İsim/soyisim"
+              label={ownerInfo.name}
+            />
+            <ReservationDetailComp title="Email" label={ownerInfo.email} />
+            <ReservationDetailComp
+              title="Telefon"
+              label={ownerInfo.phoneNumber}
+            />
+          </div>
         </div>
       </div>
     </div>
