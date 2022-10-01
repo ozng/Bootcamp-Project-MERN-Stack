@@ -1,25 +1,15 @@
 import mongoose from "mongoose";
 
 const reservationSchema = mongoose.Schema({
-  otelID: {
-    required: true,
-  },
-  host: {
-    type: Object,
-    required: true,
-  },
-  startDate: {
-    type: Date,
-    required: true,
-  },
-  endDate: {
-    type: Date,
-    required: true,
-  },
+  otelID: String,
+  host: Array,
+  startDate: Date,
+  endDate: Date,
   createdAt: {
     type: Date,
     default: new Date(),
   },
+  price: Number,
 });
 
 const Reservation = mongoose.model("reservation", reservationSchema);

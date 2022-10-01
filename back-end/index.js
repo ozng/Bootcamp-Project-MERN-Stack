@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import bodyParser from "body-parser";
 import reservationRoute from "./routers/reservation.js";
 
 dotenv.config();
@@ -13,6 +14,10 @@ const PORT = 8800;
 const app = express();
 
 app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 
 mongoose.connect(
   MONGODBURL,
