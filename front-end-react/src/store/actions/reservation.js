@@ -2,6 +2,7 @@ export const SET_CITY = "SET_CITY";
 export const SET_DATE = "SET_DATE";
 export const SET_HOST = "SET_HOST";
 export const SET_OWNER_INFO = "SET_OWNER_INFO";
+export const FETCH_RESERVATION = "FETCH_RESERVATION";
 
 export const changeCity = (selectedCity) => {
   return async (dispatch) => {
@@ -26,3 +27,5 @@ export const setOwnerInfo = (ownerInfo) => {
     dispatch({ type: SET_OWNER_INFO, payload: ownerInfo });
   };
 };
+
+export const fetchReservation = () => {};

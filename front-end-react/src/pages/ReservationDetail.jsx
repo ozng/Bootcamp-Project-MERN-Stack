@@ -42,27 +42,27 @@ function ReservationDetail() {
           />
           <ReservationDetailComp
             title="Seçilen otel"
-            label={selectedHotel.title}
+            label={selectedHotel?.title}
           />
-          <ReservationDetailComp title="İsim/soyisim" label={ownerInfo.name} />
-          <ReservationDetailComp title="Email" label={ownerInfo.email} />
+          <ReservationDetailComp title="İsim/soyisim" label={ownerInfo?.name} />
+          <ReservationDetailComp title="Email" label={ownerInfo?.email} />
           <ReservationDetailComp
             title="Telefon"
-            label={ownerInfo.phoneNumber}
+            label={ownerInfo?.phoneNumber}
           />
           <ReservationDetailComp
             title="Giriş tarihi"
-            label={moment(date[0]._d).locale("tr").format("LL")}
+            label={moment(date[0]?._d).locale("tr").format("LL")}
           />
           <ReservationDetailComp
             title="Çıkış tarihi"
-            label={moment(date[1]._d).locale("tr").format("LL")}
+            label={moment(date[1]?._d).locale("tr").format("LL")}
           />
-          {host.cat.value > 0 && (
-            <ReservationDetailComp title="Kedi" label={host.cat.value} />
+          {host?.cat.value > 0 && (
+            <ReservationDetailComp title="Kedi" label={host?.cat.value} />
           )}
-          {host.dog.value > 0 && (
-            <ReservationDetailComp title="Köpek" label={host.dog.value} />
+          {host?.dog.value > 0 && (
+            <ReservationDetailComp title="Köpek" label={host?.dog.value} />
           )}
           {/* </div> */}
         </div>

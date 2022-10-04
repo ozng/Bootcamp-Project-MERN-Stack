@@ -29,7 +29,7 @@ export const saveReservation = async (req, res) => {
       await newReservation.save();
       res.status(200).json({
         message: "Reservation is saved",
-        body: reservationDetail,
+        body: newReservation,
       });
     } catch (err) {
       res.status(500).json({
