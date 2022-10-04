@@ -3,6 +3,7 @@ import {
   SET_DATE,
   SET_HOST,
   SET_OWNER_INFO,
+  CREATE_RESERVATION,
 } from "../actions/reservation";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     dog: { value: 0 },
   },
   ownerInfo: {},
+  reservationID: null,
 };
 
 const reservationReducer = (state = initialState, action) => {
@@ -43,6 +45,11 @@ const reservationReducer = (state = initialState, action) => {
       return {
         ...state,
         ownerInfo: action.payload,
+      };
+    case CREATE_RESERVATION:
+      return {
+        ...state,
+        reservationID: action.payload,
       };
     default:
       return {

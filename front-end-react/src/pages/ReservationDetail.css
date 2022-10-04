@@ -22,3 +22,9 @@
 .reservation-detail-m {
   padding-top: 5rem;
 }
+
+.reservation-detail-dont-forget-reservation {
+  color: #f1f1f1;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

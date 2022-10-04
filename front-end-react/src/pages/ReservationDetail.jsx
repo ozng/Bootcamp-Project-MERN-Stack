@@ -26,47 +26,64 @@ function ReservationDetail() {
   const ownerInfo = useSelector((state) => state.reservation.ownerInfo);
   const host = useSelector((state) => state.reservation.host);
   const date = useSelector((state) => state.reservation.date);
-
+  const reservationID = useSelector((state) => state.reservation.reservationID);
+  console.log(reservationID);
   return (
     <div>
       <Navbar />
-      <div className="reservation-detail-container">
-        <div className="reservation-detail-title-container reservation-detail-m">
-          <Title className="reservation-detail-label" level={2}>
-            Rezervasyonunuz Tamamlandı.
-          </Title>
-          {/* <div className="reservation-detail-info"> */}
-          <ReservationDetailComp
-            title="Rezervasyon numaranız"
-            label="qe2Er894"
-          />
-          <ReservationDetailComp
-            title="Seçilen otel"
-            label={selectedHotel?.title}
-          />
-          <ReservationDetailComp title="İsim/soyisim" label={ownerInfo?.name} />
-          <ReservationDetailComp title="Email" label={ownerInfo?.email} />
-          <ReservationDetailComp
-            title="Telefon"
-            label={ownerInfo?.phoneNumber}
-          />
-          <ReservationDetailComp
-            title="Giriş tarihi"
-            label={moment(date[0]?._d).locale("tr").format("LL")}
-          />
-          <ReservationDetailComp
-            title="Çıkış tarihi"
-            label={moment(date[1]?._d).locale("tr").format("LL")}
-          />
-          {host?.cat.value > 0 && (
-            <ReservationDetailComp title="Kedi" label={host?.cat.value} />
-          )}
-          {host?.dog.value > 0 && (
-            <ReservationDetailComp title="Köpek" label={host?.dog.value} />
-          )}
-          {/* </div> */}
+      {reservationID ? (
+        <div className="reservation-detail-container">
+          <div className="reservation-detail-title-container reservation-detail-m">
+            <Title className="reservation-detail-label" level={2}>
+              Rezervasyonunuz Tamamlandı.
+            </Title>
+            {/* <div className="reservation-detail-info"> */}
+            <ReservationDetailComp
+              title="Rezervasyon numaranız"
+              label={reservationID ? reservationID : "Hata oluştu..."}
+            />
+            <p className="reservation-detail-dont-forget-reservation">
+              *Rezervasyon numaranızı kaybetmeyiniz...
+            </p>
+            <ReservationDetailComp
+              title="Seçilen otel"
+              label={selectedHotel?.title}
+            />
+            <ReservationDetailComp
+              title="İsim/soyisim"
+              label={ownerInfo?.name}
+            />
+            <ReservationDetailComp title="Email" label={ownerInfo?.email} />
+            <ReservationDetailComp
+              title="Telefon"
+              label={ownerInfo?.phoneNumber}
+            />
+            <ReservationDetailComp
+              title="Giriş tarihi"
+              label={moment(date[0]?._d).locale("tr").format("LL")}
+            />
+            <ReservationDetailComp
+              title="Çıkış tarihi"
+              label={moment(date[1]?._d).locale("tr").format("LL")}
+            />
+            {host?.cat.value > 0 && (
+              <ReservationDetailComp title="Kedi" label={host?.cat.value} />
+            )}
+            {host?.dog.value > 0 && (
+              <ReservationDetailComp title="Köpek" label={host?.dog.value} />
+            )}
+            {/* </div> */}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="reservation-detail-container">
+          <div className="reservation-detail-title-container reservation-detail-m">
+            <Title className="reservation-detail-label" level={2}>
+              Rezervasyonunuz Oluşturuluyor...
+            </Title>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

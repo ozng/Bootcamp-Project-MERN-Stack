@@ -5,11 +5,11 @@ const reservationSchema = mongoose.Schema({
   host: Array,
   startDate: Date,
   endDate: Date,
+  ownerInfo: Array,
   createdAt: {
     type: Date,
     default: new Date(),
   },
-  price: Number,
 });
 
 const Reservation = mongoose.model("reservation", reservationSchema);

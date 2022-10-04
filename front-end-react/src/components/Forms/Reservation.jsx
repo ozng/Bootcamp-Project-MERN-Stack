@@ -1,17 +1,26 @@
 import { Button, Form, Input, Space } from "antd";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setOwnerInfo } from "../../store/actions/reservation";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setOwnerInfo,
+  createReservation,
+} from "../../store/actions/reservation";
 import { useNavigate } from "react-router-dom";
 
 function Reservation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const selectedHotel = useSelector((state) => state.otel.selectedOtel);
+  const host = useSelector((state) => state.reservation.host);
+  const date = useSelector((state) => state.reservation.date);
+  const ownerInfo = useSelector((state) => state.reservation.ownerInfo);
+
   const [phoneCode, setPhoneCode] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState(null);
+  const [isDone, setIsDone] = useState(false);
 
-  const handleFinish = (e) => {
+  const handleIsDone = (e) => {
     dispatch(
       setOwnerInfo({
         name: e.name,
@@ -19,10 +28,28 @@ function Reservation() {
         phoneNumber: phoneCode + phoneNumber,
       })
     );
+    setIsDone(true);
+  };
+
+  const handleFinish = () => {
+    dispatch(
+      createReservation({
+        otelID: selectedHotel.id,
+        host: [
+          {
+            cat: host.cat.value,
+            dog: host.dog.value,
+          },
+        ],
+        startDate: date[0]._d,
+        endDate: date[1]._d,
+        ownerInfo: [ownerInfo],
+      })
+    );
     navigate("/reservation");
   };
   return (
-    <Form autoComplete="off" onFinish={handleFinish} layout="vertical">
+    <Form autoComplete="off" onFinish={handleIsDone} layout="vertical">
       <Form.Item
         name="name"
         label="İsim/Soyisim"
@@ -72,6 +99,9 @@ function Reservation() {
       <Form.Item>
         <Space size="small">
           <Button type="primary" htmlType="submit">
+            Bilgilerimi Kaydet
+          </Button>
+          <Button type="primary" onClick={handleFinish} disabled={!isDone}>
             Rezervasyonu Tamamla
           </Button>
           <Button type="primary" htmlType="reset">
