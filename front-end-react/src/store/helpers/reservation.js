@@ -5,3 +5,13 @@ export const createReservationHandler = async (reservation) => {
 
   return data;
 };
+
+export const fetchReservationHandler = async (reservationNumber) => {
+  try {
+    const { data } = await axios.get(`/getReservation/${reservationNumber}`);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

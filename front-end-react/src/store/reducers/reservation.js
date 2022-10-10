@@ -4,7 +4,9 @@ import {
   SET_HOST,
   SET_OWNER_INFO,
   CREATE_RESERVATION,
+  FETCH_RESERVATION,
 } from "../actions/reservation";
+import { otelData } from "../../dummy-data/OtelData";
 
 const initialState = {
   city: null,
@@ -50,6 +52,29 @@ const reservationReducer = (state = initialState, action) => {
       return {
         ...state,
         reservationID: action.payload,
+      };
+    case FETCH_RESERVATION:
+      const selectedHotel = otelData.find(
+        (otel) => otel.id === action.payload.otelID
+      );
+      console.log(selectedHotel);
+      return {
+        ...state,
+        reservationID: action.payload._id,
+        city: selectedHotel.city,
+        date: [
+          {
+            _d: action.payload.startDate,
+          },
+          {
+            _d: action.payload.endDate,
+          },
+        ],
+        host: {
+          cat: { value: action.payload.host[0].cat },
+          dog: { value: action.payload.host[0].dog },
+        },
+        ownerInfo: action.payload.ownerInfo[0],
       };
     default:
       return {

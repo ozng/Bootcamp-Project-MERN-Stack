@@ -1,4 +1,7 @@
-import { createReservationHandler } from "../helpers/reservation";
+import {
+  createReservationHandler,
+  fetchReservationHandler,
+} from "../helpers/reservation";
 
 export const SET_CITY = "SET_CITY";
 export const SET_DATE = "SET_DATE";
@@ -31,7 +34,12 @@ export const setOwnerInfo = (ownerInfo) => {
   };
 };
 
-export const fetchReservation = () => {};
+export const fetchReservation = (reservationNumber) => {
+  return async (dispatch) => {
+    const reservation = await fetchReservationHandler(reservationNumber);
+    dispatch({ type: FETCH_RESERVATION, payload: reservation });
+  };
+};
 
 export const createReservation = (reservation) => {
   return async (dispatch) => {

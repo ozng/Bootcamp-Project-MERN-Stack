@@ -35,7 +35,7 @@ function ReservationDetail() {
         <div className="reservation-detail-container">
           <div className="reservation-detail-title-container reservation-detail-m">
             <Title className="reservation-detail-label" level={2}>
-              Rezervasyonunuz Tamamlandı.
+              Rezervasyon Bilgileriniz
             </Title>
             {/* <div className="reservation-detail-info"> */}
             <ReservationDetailComp
@@ -79,7 +79,7 @@ function ReservationDetail() {
         <div className="reservation-detail-container">
           <div className="reservation-detail-title-container reservation-detail-m">
             <Title className="reservation-detail-label" level={2}>
-              Rezervasyonunuz Oluşturuluyor...
+              Rezervasyonunuz oluşturuluyor/aranıyor...
             </Title>
           </div>
         </div>

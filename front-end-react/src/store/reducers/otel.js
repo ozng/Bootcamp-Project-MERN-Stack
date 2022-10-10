@@ -4,6 +4,7 @@ import {
   SET_FILTERED_OTELS_BY_HOST,
 } from "../actions/otel";
 import { otelData } from "../../dummy-data/OtelData";
+import { FETCH_RESERVATION } from "../actions/reservation";
 
 const initialState = {
   selectedOtel: null,
@@ -31,6 +32,13 @@ const otelReducer = (state = initialState, action) => {
             : otelData.filter((otel) =>
                 otel.acceptedHosts.includes(action.payload)
               ),
+      };
+    case FETCH_RESERVATION:
+      const selectedHotel = otelData.find(
+        (otel) => otel.id === action.payload.otelID
+      );
+      return {
+        selectedOtel: selectedHotel,
       };
     default:
       return {

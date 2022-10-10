@@ -1,13 +1,21 @@
 import { Button, Form, Input, Space } from "antd";
+import { useDispatch } from "react-redux";
+import { fetchReservation } from "../../store/actions/reservation";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const FindReservation = () => {
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
+
   const handleFinish = (e) => {
-    console.log(e);
+    dispatch(fetchReservation(e.number));
+    navigation("/reservation");
   };
+
   return (
     <Form onFinish={handleFinish} autoComplete="off" layout="vertical">
       <Form.Item
-        name="name"
+        name="number"
         label="Rezervasyon Numaranız"
         rules={[
           {
@@ -20,6 +28,7 @@ const Register = () => {
           },
           {
             min: 24,
+            max: 24,
             message: "Reservation no must be least 24 characters",
           },
         ]}
@@ -41,4 +50,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default FindReservation;
